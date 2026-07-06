@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reporte Ciudadano | VíaAlerta</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="main-nav">
+      <a href="index.html">Inicio</a>
+      <a href="ruta-segura.html">Ruta segura</a>
+      <a href="reporte-ciudadano.html">Enviar reporte</a>
+      <a href="funciones.html">Coming soon</a>
+      <a href="sobre-nosotros.html">Sobre nosotros</a>
+    </nav>
+  </header>
+
+  <main class="section section--gray">
+    <div class="section__header">
+      <span class="eyebrow">Reporte ciudadano</span>
+      <h2>Envía un reporte y ayuda a mejorar la seguridad urbana.</h2>
+    </div>
+    <div class="report-form">
+      <form class="form-card" id="reporteForm">
+        <label>
+          Tipo de incidente
+          <select id="incidente" required>
+            <option value="iluminacion">Iluminación deficiente</option>
+            <option value="vandalismo">Vandalismo</option>
+            <option value="transeuntes">Zona solitaria</option>
+            <option value="pavimento">Infraestructura deficiente</option>
+          </select>
+        </label>
+        <label>
+          Ubicación
+          <input type="text" id="ubicacion" list="calles" placeholder="Ej. Jr. Amazonas con Av. Arequipa" required />
+          <datalist id="calles">
+            <option value="Av. Javier Prado"></option>
+            <option value="Av. Arequipa"></option>
+            <option value="Av. La Marina"></option>
+            <option value="Av. Universitaria"></option>
+            <option value="Av. José Larco"></option>
+            <option value="Av. 28 de Julio"></option>
+            <option value="Jr. Amazonas"></option>
+            <option value="Jr. Washington"></option>
+            <option value="Av. Paseo de la República"></option>
+            <option value="Av. Benavides"></option>
+          </datalist>
+        </label>
+        <label>
+          Descripción
+          <textarea id="descripcion" rows="4" placeholder="Describe brevemente lo observado" required></textarea>
+        </label>
+        <button type="submit" class="btn btn--secondary btn--large">Enviar reporte</button>
+      </form>
+      <div class="alert-card" id="reporteConfirmacion" aria-live="polite">
+        <p class="alert__hint">Tus reportes ayudan a mantener la ciudad más segura.</p>
+      </div>
+      <section class="reportes-guardados-card" id="reportesGuardados">
+        <h3>Reportes registrados</h3>
+        <p class="report__hint">Aquí verás los reportes enviados recientemente.</p>
+        <ul class="report-list" id="listaReportes"></ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div>
+      <p><strong>VíaAlerta</strong> — Solución de seguridad urbana para Lima Metropolitana.</p>
+      <p>Integrantes: Equipo VíaAlerta | Curso: Desarrollo Web y Seguridad Ciudadana</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

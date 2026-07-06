@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ruta Segura | VíaAlerta</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="main-nav">
+      <a href="index.html">Inicio</a>
+      <a href="ruta-segura.html">Ruta segura</a>
+      <a href="reporte-ciudadano.html">Enviar reporte</a>
+      <a href="funciones.html">Coming soon</a>
+      <a href="sobre-nosotros.html">Sobre nosotros</a>
+    </nav>
+  </header>
+
+  <main class="section section--white">
+    <div class="section__header">
+      <span class="eyebrow">Ruta segura</span>
+      <h2>Simula tu ruta priorizando seguridad e iluminación.</h2>
+    </div>
+    <div class="simulator">
+      <form class="form-card" id="rutaForm">
+        <label>
+          Origen
+          <input type="text" id="origen" list="calles" placeholder="Ej. Av. Javier Prado" required />
+        </label>
+        <label>
+          Destino
+          <input type="text" id="destino" list="calles" placeholder="Ej. Plaza San Martín" required />
+        </label>
+        <label>
+          Tipo de movilidad
+          <select id="movilidad" required>
+            <option value="peatonal">Peatonal</option>
+            <option value="bicicleta">Bicicleta</option>
+            <option value="scooter">Scooter</option>
+          </select>
+        </label>
+        <button type="submit" class="btn btn--primary btn--large">Buscar ruta segura</button>
+        <datalist id="calles">
+          <option value="Av. Javier Prado"></option>
+          <option value="Av. Arequipa"></option>
+          <option value="Av. La Marina"></option>
+          <option value="Av. Universitaria"></option>
+          <option value="Av. José Larco"></option>
+          <option value="Av. 28 de Julio"></option>
+          <option value="Jr. Amazonas"></option>
+          <option value="Jr. Washington"></option>
+          <option value="Av. Paseo de la República"></option>
+          <option value="Av. Benavides"></option>
+        </datalist>
+      </form>
+      <div class="result-card" id="rutaResultado" aria-live="polite">
+        <p class="result__hint">Completa el formulario para ver la ruta recomendada.</p>
+      </div>
+    </div>
+    <section class="map-section">
+      <div class="map-card" id="heatMap">
+        <h3>Mapa de calor</h3>
+        <div class="heat-grid" id="heatGrid">
+          <div class="heat-zone heat-zone--green">Seguro</div>
+          <div class="heat-zone heat-zone--yellow">Precaución</div>
+          <div class="heat-zone heat-zone--red">Alto riesgo</div>
+        </div>
+        <p id="mapSummary">Selecciona origen y destino para cargar la vista de la ruta.</p>
+      </div>
+      <div class="map-card map-card--real">
+        <h3>Mapa real de Lima</h3>
+        <div class="heatmap-container">
+          <iframe id="mapIframe" src="https://www.google.com/maps?q=Lima+Peru&output=embed" loading="lazy"></iframe>
+          <canvas id="heatmapCanvas" class="heatmap-overlay"></canvas>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>
+      <p><strong>VíaAlerta</strong> — Solución de seguridad urbana para Lima Metropolitana.</p>
+      <p>Integrantes: Equipo VíaAlerta | Curso: Desarrollo Web y Seguridad Ciudadana</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
